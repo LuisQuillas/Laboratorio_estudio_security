@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/navbar :: head('Productos')}"></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container page">
+    <h2>Productos</h2>
+    <p class="text-muted">Ruta pública: cualquiera puede verla, con o sin sesión.</p>
+    <table class="table table-striped bg-white">
+        <thead><tr><th>#</th><th>Producto</th><th>Precio</th><th>Stock</th></tr></thead>
+        <tbody>
+        <tr><td>1</td><td>Chai</td><td>18.00</td><td>39</td></tr>
+        <tr><td>2</td><td>Chang</td><td>19.00</td><td>17</td></tr>
+        <tr><td>3</td><td>Aniseed Syrup</td><td>10.00</td><td>13</td></tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

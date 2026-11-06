@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/navbar :: head('Error')}"></head>
+<body>
+<div class="container text-center" style="margin-top: 100px; max-width: 560px;">
+
+    <!-- Spring Boot llena status, error, path y timestamp automaticamente -->
+    <h1 class="display-4" th:text="${status}">500</h1>
+
+    <div th:switch="${status}">
+        <p class="lead" th:case="404">La página que buscas no existe.</p>
+        <p class="lead" th:case="405">Esta acción no está permitida en esta ruta.</p>
+        <p class="lead" th:case="500">Ocurrió un error en el servidor. Intenta de nuevo.</p>
+        <p class="lead" th:case="*">Ocurrió un error inesperado.</p>
+    </div>
+
+    <p class="text-muted mb-1">
+        <span th:text="${error}">Not Found</span>
+        en <code th:text="${path}">/ruta</code>
+    </p>
+    <p class="text-muted small" th:text="${#dates.format(timestamp, 'dd/MM/yyyy HH:mm:ss')}">05/11/2026 20:14:00</p>
+
+    <a class="btn btn-primary mt-3" th:href="@{/product}">Volver a productos</a>
+    <a class="btn btn-outline-secondary mt-3" th:href="@{/loginForm}">Ir al login</a>
+</div>
+</body>
+</html>
